@@ -52,6 +52,9 @@ class SupportActivityBuilder {
       if (options.hasKey("articleVotingEnabled")) {
         this.withArticleVoting(options.getBoolean("articleVotingEnabled"));
       }
+      if (options.hasKey("withCategoriesCollapsed")) {
+        this.withCategoriesCollapsed(options.getBoolean("withCategoriesCollapsed"));
+      }
       if (options.hasKey("withContactUsButtonVisibility")) {
         switch(options.getString("withContactUsButtonVisibility")) {
           case "OFF":

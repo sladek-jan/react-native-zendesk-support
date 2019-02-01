@@ -47,6 +47,13 @@ RCT_EXPORT_METHOD(showHelpCenterWithOptions:(NSDictionary *)options) {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIWindow *window=[UIApplication sharedApplication].keyWindow;
         UIViewController *vc = [window rootViewController];
+        
+        NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIColor whiteColor] ,UITextAttributeTextColor, nil];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:23.0f/255.0f green:183.0f/255.0f blue:1.0f alpha:1.0f]];
+        [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+        
         ZDKHelpCenterOverviewContentModel *helpCenterContentModel = [ZDKHelpCenterOverviewContentModel defaultContent];
         helpCenterContentModel.hideContactSupport = [RCTConvert BOOL:options[@"hideContactSupport"]];
         if (helpCenterContentModel.hideContactSupport) {
